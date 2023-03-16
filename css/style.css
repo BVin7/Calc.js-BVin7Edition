@@ -1,0 +1,146 @@
+:root {
+    /* colors */
+    --matteBlack: rgb(20, 20, 23);
+    --boneWhite: rgb(249, 246, 238);
+    --white: rgb(255, 255, 255);
+    --brightBlue: rgb(0, 150, 255);
+    --skyBlue: rgb(135, 206, 235);
+    --lemonYellow: rgb(250, 250, 51);
+    --gunMetalGray: rgb(129, 133, 137);
+
+    /* font */
+    --mainFont: 'Chakra Petch', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--matteBlack);
+    color: var(--boneWhite);
+    font-family: var(--mainFont);
+    height: 100dvh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+section {
+    min-width: 500px;
+}
+
+.input-container {
+    display: grid;
+    grid-template-areas: 
+    "title-container switch-theme-button"
+    "calculator-screen-input calculator-screen-input";
+    gap: 1rem;
+}
+
+.title-container {
+    grid-area: title-container;
+};
+
+#switch-theme-button {
+    grid-area: switch-theme-button;
+}
+
+#calculator-screen-input {
+    grid-area: calculator-screen-input;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h3 {
+    margin-left: 3rem;
+    color: var(--lemonYellow);
+    font-style: italic;
+    font-weight: 400;
+}
+
+input {
+    padding: .7rem;
+    background-color: transparent;
+    color: var(--boneWhite);
+    border-radius: .3rem;
+    border: .1rem solid var(--lemonYellow);
+    font-size: 1.7rem;
+    font-family: var(--mainFont);
+    text-align: right;
+}
+
+.misc-buttons {
+    background-color: transparent;
+    font-family: var(--mainFont);
+    color: var(--boneWhite);
+    border: .1rem solid var(--lemonYellow);
+    border-radius: .3rem;
+    padding: .7rem;
+    font-size: 1rem;
+    transition: .5s;
+}
+
+.misc-buttons:hover {
+    background-color: var(--lemonYellow);
+    color: var(--matteBlack);
+}
+
+.misc-buttons:active {
+    background-color: var(--white);
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.calculator-buttons {
+    padding: 1rem;
+    background-color: var(--brightBlue);
+    font-family: var(--mainFont);
+    border: .2rem solid transparent;
+    border-radius: .3rem;
+    font-size: 1.7rem;
+    transition: .3s;
+}
+
+.calculator-buttons:hover {
+    border-color: var(--lemonYellow);
+    cursor: pointer;
+}
+
+.calculator-buttons:active {
+    background-color: var(--white);
+}
+
+.results-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#copyToClipboardButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-grow: 1;
+}
+
+#results-input {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: var(--gunMetalGray);
+    text-align: center;
+}
