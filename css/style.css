@@ -58,6 +58,11 @@ section {
     grid-area: calculator-screen-input;
 }
 
+#calculator-screen-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 h1 {
     font-weight: 700;
 }
