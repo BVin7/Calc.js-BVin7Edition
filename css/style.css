@@ -22,6 +22,8 @@ body {
     background-color: var(--matteBlack);
     color: var(--boneWhite);
     font-family: var(--mainFont);
+    display: flex;
+    justify-content: center;
     height: 100dvh;
 }
 
@@ -31,18 +33,18 @@ main {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    height: 100%;
 }
 
 section {
     min-width: 500px;
+    margin: 0 1rem;
 }
 
 .input-container {
     display: grid;
     grid-template-areas: 
-    "title-container switch-theme-button"
-    "calculator-screen-input calculator-screen-input";
+    "title-container title-container title-container switch-theme-button"
+    "calculator-screen-input calculator-screen-input calculator-screen-input calculator-screen-input";
     gap: 1rem;
 }
 
@@ -146,6 +148,37 @@ input {
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    color: var(--gunMetalGray);
+    color: var(--white);
     text-align: center;
+    font-weight: 700;
+}
+
+@media (width < 540px) {
+    section {
+        min-width: 350px;
+    }
+
+    .input-container {
+        grid-template-areas: 
+        "title-container switch-theme-button"
+        "calculator-screen-input calculator-screen-input";
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    #switch-theme-button {
+        padding: 0rem;
+    }
+
+    .buttons-container, 
+    .input-container {
+        gap: .7rem;
+    }
+
+    .calculator-buttons {
+        padding: .7rem;
+        font-size: 1rem;
+    }
 }
