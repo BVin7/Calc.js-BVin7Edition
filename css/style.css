@@ -3,9 +3,9 @@
     --matteBlack: rgb(20, 20, 23);
     --boneWhite: rgb(249, 246, 238);
     --white: rgb(255, 255, 255);
-    --brightBlue: rgb(0, 150, 255);
-    --skyBlue: rgb(135, 206, 235);
+    --royalBlue: rgb(65, 105, 225);
     --lemonYellow: rgb(250, 250, 51);
+    --babyBlue: rgb(137, 207, 240);
     --gunMetalGray: rgb(129, 133, 137);
 
     /* font */
@@ -19,12 +19,22 @@
 }
 
 body {
-    background-color: var(--matteBlack);
-    color: var(--boneWhite);
     font-family: var(--mainFont);
     display: flex;
     justify-content: center;
     height: 100dvh;
+}
+
+.body-dark-theme {
+    background-color: var(--matteBlack);
+    color: var(--boneWhite);
+    transition: 1s;
+}
+
+.body-light-theme {
+    background-color: var(--boneWhite);
+    color: var(--matteBlack);
+    transition: 1s;
 }
 
 main {
@@ -71,40 +81,72 @@ h1 {
 
 h3 {
     margin-left: 3rem;
-    color: var(--lemonYellow);
     font-style: italic;
     font-weight: 400;
+}
+
+.h3-dark-theme {
+    color: var(--lemonYellow);
+}
+
+.h3-light-theme {
+    color: var(--gunMetalGray);
 }
 
 input {
     padding: .7rem;
     background-color: transparent;
-    color: var(--boneWhite);
     border-radius: .3rem;
-    border: .1rem solid var(--lemonYellow);
     font-size: 1.7rem;
     font-family: var(--mainFont);
     text-align: right;
 }
 
+.input-dark-theme {
+    color: var(--white);
+    border: .1rem solid var(--lemonYellow);
+}
+
+.input-light-theme {
+    color: var(--matteBlack);
+    border: .1rem solid var(--gunMetalGray);
+}
+
 .misc-buttons {
     background-color: transparent;
     font-family: var(--mainFont);
-    color: var(--boneWhite);
-    border: .1rem solid var(--lemonYellow);
     border-radius: .3rem;
     padding: .7rem;
     font-size: 1rem;
     transition: .5s;
 }
 
-.misc-buttons:hover {
+.misc-buttons-dark-theme {
+    color: var(--boneWhite);
+    border: .1rem solid var(--lemonYellow);
+}
+
+.misc-buttons-dark-theme:hover {
     background-color: var(--lemonYellow);
     color: var(--matteBlack);
 }
 
-.misc-buttons:active {
+.misc-buttons-dark-theme:active {
     background-color: var(--white);
+}
+
+.misc-buttons-light-theme {
+    color: var(--matteBlack);
+    border: .1rem solid var(--gunMetalGray);
+}
+
+.misc-buttons-light-theme:hover {
+    background-color: var(--gunMetalGray);
+}
+
+.misc-buttons-light-theme:active {
+    background-color: var(--matteBlack);
+    color: var(--white);
 }
 
 .buttons-container {
@@ -116,26 +158,47 @@ input {
 
 .calculator-buttons {
     padding: 1rem;
-    background-color: var(--brightBlue);
     font-family: var(--mainFont);
-    border: .2rem solid transparent;
     border-radius: .3rem;
     font-size: 1.7rem;
     transition: .3s;
 }
 
-.calculator-buttons:hover {
+.dark-theme-calculator-buttons {
+    background-color: var(--royalBlue);
+    border: .2rem solid transparent;
+}
+
+.dark-theme-calculator-buttons:hover {
     border-color: var(--lemonYellow);
+    color: var(--lemonYellow);
     cursor: pointer;
 }
 
-.calculator-buttons:active {
+.dark-theme-calculator-buttons:active {
     background-color: var(--white);
+    color: var(--matteBlack);
+}
+
+.light-theme-calculator-buttons {
+    background-color: var(--babyBlue);
+    color: var(--boneWhite);
+    border: .2rem solid transparent;
+}
+
+.light-theme-calculator-buttons:hover {
+    border-color: var(--matteBlack);
+    color: var(--matteBlack);
+    cursor: pointer;
+}
+
+.light-theme-calculator-buttons:active {
+    background-color: var(--matteBlack);
+    color: var(--white);
 }
 
 .results-container {
     display: flex;
-    justify-content: space-between;
 }
 
 #copyToClipboardButton {
@@ -148,7 +211,6 @@ input {
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    color: var(--white);
     text-align: center;
     font-weight: 700;
 }
@@ -163,18 +225,30 @@ input {
         "title-container switch-theme-button"
         "calculator-screen-input calculator-screen-input";
     }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        margin-left: 3rem;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1rem;
+    }
 
     input {
         font-size: 1rem;
     }
 
-    #switch-theme-button {
+    .misc-buttons {
         padding: 0rem;
     }
 
     .buttons-container, 
     .input-container {
         gap: .7rem;
+        justify-content: space-between;
     }
 
     .calculator-buttons {

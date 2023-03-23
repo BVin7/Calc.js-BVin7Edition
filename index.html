@@ -14,14 +14,14 @@
     <script src="./js/script.js" defer></script>
 </head>
 
-<body>
+<body class="body-dark-theme">
     <main>
         <section class="input-container">
             <div class="title-container">
                 <h1>Calc.js</h1>
-                <h3>BVin7 Edition</h3>
+                <h3 class="h3-dark-theme">BVin7 Edition</h3>
             </div>
-            <button id="switch-theme-button" class="misc-buttons" type="button">
+            <button id="switch-theme-button" class="misc-buttons misc-buttons-dark-theme" type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun-high" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"></path>
@@ -35,33 +35,39 @@
                     <path d="M12 20v2"></path>
                  </svg>
             </button>
-            <input id="calculator-screen-input" type="text">
+            <input id="calculator-screen-input" class="input-dark-theme" type="text">
         </section>
         <section class="buttons-container">
-            <button id="clear-all" class="calculator-buttons" type="button">C</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" ( ">(</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" ) ">)</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" / ">/</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="7">7</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="8">8</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="9">9</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" * ">*</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="4">4</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="5">5</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="6">6</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" - ">-</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="1">1</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="2">2</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="3">3</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=" + ">+</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="0">0</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value=".">.</button>
-            <button class="calculator-buttons onscreen-buttons" type="button" data-value="%">mod</button>
-            <button id="equals" class="calculator-buttons" type="button">=</button>
+            <button id="clear-all" class="calculator-buttons dark-theme-calculator-buttons" type="button">C</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" ( ">(</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" ) ">)</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" / ">/</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="7">7</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="8">8</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="9">9</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" * ">*</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="4">4</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="5">5</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="6">6</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" - ">-</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="1">1</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="2">2</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="3">3</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=" + ">+</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="0">0</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value=".">.</button>
+            <button class="calculator-buttons onscreen-buttons dark-theme-calculator-buttons" type="button" data-value="%">mod</button>
+            <button id="equals" class="calculator-buttons dark-theme-calculator-buttons" type="button">=</button>
         </section>
         <section class="results-container">
-            <button id="copyToClipboardButton" class="misc-buttons">Copy</button>
-            <input id="results-input" type="text" value="Results" disabled>
+            <button id="copyToClipboardButton" class="misc-buttons misc-buttons-dark-theme">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                 </svg>
+            </button>
+            <input id="results-input" class="input-dark-theme" type="text" value="Results" disabled>
         </section>
     </main>
 </body>
