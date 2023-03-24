@@ -1,12 +1,74 @@
+//GLOBAL VARIABLES SECTION
 const switchThemeButton = document.getElementById("switch-theme-button");
 const calculatorScreenInput = document.getElementById("calculator-screen-input");
 const calculatorButtons = document.querySelectorAll(".onscreen-buttons");
 const clearAllButton = document.getElementById("clear-all");
 const equalsButton = document.getElementById("equals");
 const resultsInput = document.getElementById("results-input");
-const allowedKeysList = ["c", "(", ")", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "%"];
+const copyToClipboardButton = document.getElementById("copy-to-clipboard-button");
+const allowedKeysList = ["(", ")", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "%"];
 
+//CODE SECTION
 switchThemeButton.addEventListener("click", () => {
+    switchBackgroundTheme();
+    switchHeaderThreeTheme();
+    switchButtonsTheme();
+    switchInputTheme();
+});
+
+calculatorScreenInput.addEventListener("keydown", (keyboardEvent) => {
+    killAllKeysFromKeyboard(keyboardEvent);
+    if (allowedKeysList.includes(keyboardEvent.key)) {
+        addPressedKeyToCalculatorScreen(keyboardEvent);
+    };
+
+    if (keyboardEvent.key === "Backspace") {
+        removeLastCharacterFromCalculatorScreen();
+    };
+
+    if (keyboardEvent.key === "Enter") {
+        calculate();
+    };
+});
+
+calculatorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        addClickedButtonValueToCalculatorScreen(button);
+    });
+});
+
+clearAllButton.addEventListener("click", () => {
+    clearAll();
+});
+
+equalsButton.addEventListener("click", () => {
+    calculate();
+})
+
+copyToClipboardButton.addEventListener("click", () => {
+    copyResultsToClipboard();
+});
+
+//FUNCTIONS SECTION
+function killAllKeysFromKeyboard(pressedKey) {
+    pressedKey.preventDefault();
+};
+
+function addPressedKeyToCalculatorScreen(pressedKey) {
+    calculatorScreenInput.value += pressedKey.key;
+    return;
+};
+
+function removeLastCharacterFromCalculatorScreen() {
+    calculatorScreenInput.value = calculatorScreenInput.value.slice(0, -1);
+};
+
+function addClickedButtonValueToCalculatorScreen(clickedButton) {
+    calculatorScreenInput.value += clickedButton.dataset.value;
+    calculatorScreenInput.focus();
+};
+
+function switchBackgroundTheme() {
     const bodyBackground = document.querySelector("body");
     switch (bodyBackground.classList.value) {
         case "body-dark-theme":
@@ -18,7 +80,9 @@ switchThemeButton.addEventListener("click", () => {
             bodyBackground.classList.add("body-dark-theme");
             break;
     };
+};
 
+function switchHeaderThreeTheme() {
     const headerThree = document.querySelector("h3");
     switch (headerThree.classList.value) {
         case "h3-dark-theme":
@@ -30,7 +94,9 @@ switchThemeButton.addEventListener("click", () => {
             headerThree.classList.add("h3-dark-theme");
             break;
     };
+};
 
+function switchButtonsTheme() {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
         switch (button.classList.value) {
@@ -58,6 +124,14 @@ switchThemeButton.addEventListener("click", () => {
                 <path d="M12 20v2"></path>
              </svg>`;
                 break;
+            case "misc-buttons misc-buttons-dark-theme":
+                button.classList.remove("misc-buttons-dark-theme");
+                button.classList.add("misc-buttons-light-theme");
+                break;
+            case "misc-buttons misc-buttons-light-theme":
+                button.classList.remove("misc-buttons-light-theme");
+                button.classList.add("misc-buttons-dark-theme");
+                break;
             case "calculator-buttons onscreen-buttons dark-theme-calculator-buttons":
                 button.classList.remove("dark-theme-calculator-buttons");
                 button.classList.add("light-theme-calculator-buttons");
@@ -76,7 +150,9 @@ switchThemeButton.addEventListener("click", () => {
                 break;
         };
     });
+};
 
+function switchInputTheme() {
     const input = document.querySelectorAll("input");
     input.forEach((input) => {
         switch (input.classList.value) {
@@ -90,42 +166,15 @@ switchThemeButton.addEventListener("click", () => {
                 break;
         };
     });
-});
-
-calculatorScreenInput.addEventListener("keydown", (event) => {
-    event.preventDefault();
-    if (allowedKeysList.includes(event.key)) {
-        calculatorScreenInput.value += event.key;
-        return;
-    };
-
-    if (event.key === "Backspace") {
-        calculatorScreenInput.value = calculatorScreenInput.value.slice(0, -1);
-    };
-
-    if (event.key === "Enter") {
-        calculate();
-    };
-});
-
-calculatorButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        calculatorScreenInput.value += button.dataset.value;
-        calculatorScreenInput.focus();
-    });
-});
-
-clearAllButton.addEventListener("click", () => {
-    clearAll();
-});
-
-equalsButton.addEventListener("click", () => {
-    calculate();
-})
+};
 
 function calculate() {
-    console.log(calculatorScreenInput.value);
+    resultsInput.value = "ERROR!";
+    resultsInput.classList.add("error-message");
+
     const results = eval(calculatorScreenInput.value);
+
+    resultsInput.classList.remove("error-message");
     resultsInput.value = results;
     calculatorScreenInput.focus();
 };
@@ -133,5 +182,23 @@ function calculate() {
 function clearAll() {
     calculatorScreenInput.value = "";
     resultsInput.value = "";
+    if(resultsInput.classList.contains("error-message")) {
+        resultsInput.classList.remove("error-message");
+    };
     calculatorScreenInput.focus();
+};
+
+function copyResultsToClipboard() {
+    navigator.clipboard.writeText(resultsInput.value);
+    if (copyToClipboardButton.classList.contains("misc-buttons-dark-theme")) {
+        copyToClipboardButton.classList.add("copied-message-dark-theme");
+        setTimeout(() => {
+            copyToClipboardButton.classList.remove("copied-message-dark-theme");
+        }, 2000);
+    } else if (copyToClipboardButton.classList.contains("misc-buttons-light-theme")) {
+        copyToClipboardButton.classList.add("copied-message-light-theme");
+        setTimeout(() => {
+            copyToClipboardButton.classList.remove("copied-message-light-theme");
+        }, 2000);
+    };
 };
