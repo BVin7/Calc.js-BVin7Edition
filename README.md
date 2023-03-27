@@ -14,6 +14,7 @@
 - Botão para trocar o tema da calculadora entre claro e escuro
 - É possível usar teclas do teclado para realizar operações (apenas teclas existentes na calculadora podem ser utilizadas)
 - Tecla 'Backspace' apaga o último caractere digitado e tecla 'Enter' exibe o resultado da operação
+- Responsiva para display mobile com largura de 360px adiante
 
 ## Ferramentas 🛠️
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
