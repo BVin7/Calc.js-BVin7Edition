@@ -23,3 +23,6 @@
 
 ## Preview 🔆
 https://user-images.githubusercontent.com/104274422/227818186-2b70b7ce-475b-4d37-8b74-d21a6f1d781d.mp4
+
+## Ícones 🔥
+> Os ícones utilizados neste projeto vieram do site **[tabler-icons](https://tabler-icons.io/)**
